@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-hello-world-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      QUALQUER_COISA: springboothelloworld
+  template:
+    metadata:
+      labels:
+        QUALQUER_COISA: springboothelloworld
+    spec:
+      containers:
+        - name: controller-hello-world
+          image: pdroreis/springboot-controller-hello-world
+          ports:
+            - containerPort: 8080
